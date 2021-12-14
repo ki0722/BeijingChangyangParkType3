@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background-color: #485563;
+  overflow: hidden;
+}
+
+/**************** HEADER ***********/
+header {
+  position: relative;
+  height: 8rem;
+  background: linear-gradient(to top, #000011, #000055);
+  box-shadow: 0 4px 0.3125rem rgba(0, 0, 0, .3);
+  z-index: 2;
+}
+
+header img {
+  position: absolute;
+  top: 36px;
+  left: 50px;
+  width: 90px;
+}
+
+header h1 {
+  position: absolute;
+  top: 45px;
+  left: 160px;
+  font-size: 1.5rem;
+  /*所有字体大小 根据画面尺寸 自动变换*/
+  background: -webkit-linear-gradient(0deg, #ACB6E5, #86FDE8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #FFFFBB;
+}
+
+/*****************************/
+#container {
+  width: 100%;
+  height: 100%;
+  padding-top: 0px;
+  text-align: center;
+  background: silver;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, .8);
+  transition-property: all;
+  transition-delay: .3s;
+  transition-duration: .5s;
+}
+
+article#VIDEO {
+  width: 100%;
+  font-size: 1.85rem;
+  margin-top: 6vw;
+  margin-bottom: 6vw;
+}
+
+article#VIDEO video {
+  display: block;
+  margin: auto;
+  width: 70%;
+}
+
+/* #PHOTO */
+article.PHOTO {
+  padding: 3rem;
+  background: #DDD;
+}
+
+article.PHOTO img {
+  width: 100%;
+}
+
+/*****************************/
+/*********#siteNavi を以下に変更（左を右へ）*********/
+#siteNavi {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 100%;
+  padding: 120px 0;
+  background: #222;
+  transition-property: all;
+  transition-duration: .5s;
+  transition-delay: 0s;
+  transform-origin: left center;
+  transform: translateX(500px);
+  opacity: 0;
+}
+
+#siteNavi li {
+  list-style-type: none;
+}
+
+#siteNavi li a {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 40px;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  transition: all .5s;
+}
+
+#siteNavi li a:hover {
+  color: #1a1e24;
+  background: #fff;
+}
+
+/*****************************/
+/*********#menuButton の位置を以下に変更（左を右へ）*********/
+#menuButton {
+  position: fixed;
+  display: block;
+  top: 50px;
+  right: 40px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.line {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 32px;
+  height: 4px;
+  background: white;
+  transition: all .5s;
+}
+
+.line.top {
+  top: 0px;
+  transform-origin: left top;
+}
+
+.line.middle {
+  top: 10px;
+  opacity: 1;
+}
+
+.line.bottom {
+  top: 20px;
+  transform-origin: left bottom;
+}
+
+#menuButton:hover .line {
+  background: #333;
+}
+
+/*************	#closeButtonField を以下に変更（左を右へ）*************/
+#closeButtonField {
+  position: fixed;
+  top: 0;
+  right: 25%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  transition-property: all;
+  transition-duration: .5s;
+  transition-delay: 0s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+/*****************************/
+.flipbook-viewport {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.flipbook-viewport .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: auto;
+}
+
+.flipbook-viewport .flipbook {
+  width: 922px;
+  height: 600px;
+  left: -461px;
+  top: -300px;
+}
+
+.flipbook-viewport .page {
+  width: 461px;
+  height: 600px;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.flipbook .page {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.flipbook-viewport .page img {
+  user-select: none;
+  margin: 0;
+}
+
+.flipbook-viewport .shadow {
+  box-shadow: 0 0 20px #ccc;
+}
+
+/*****************************/
+#dummyCheckBox {
+  display: none;
+}
+
+#dummyCheckBox:checked~#container {
+  /*	transition-delay: 0s;
+	transform: translateX(25%);
+	*/
+}
+
+#dummyCheckBox:checked~#siteNavi {
+  transition-delay: .3s;
+  transform: translateX(0);
+  opacity: 1;
+  z-index: 2;
+}
+
+#dummyCheckBox:checked~#menuButton .line.top {
+  width: 40px;
+  top: -2px;
+  transform: rotate(45deg);
+}
+
+#dummyCheckBox:checked~#menuButton .line.middle {
+  opacity: 0;
+}
+
+#dummyCheckBox:checked~#menuButton .line.bottom {
+  width: 40px;
+  top: 26px;
+  transform: rotate(-45deg);
+}
+
+#dummyCheckBox:checked~#closeButtonField {
+  transition-duration: 1s;
+  transition-delay: .3s;
+  background: rgba(0, 0, 0, .5);
+  visibility: visible;
+  opacity: 1;
+  z-index: 3;
+}
+
+/************* FOOTER **************/
+footer {
+  padding: 2rem 0;
+  text-align: center;
+  background: linear-gradient(to top, #000055, #000011);
+  color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  background: -webkit-linear-gradient(0deg, #98fb98, #86FDE8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
