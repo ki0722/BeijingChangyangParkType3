@@ -271,3 +271,23 @@ footer p {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+#socialIcon {
+  width:120px;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#socialIcon li {
+  list-style-type: none;
+}
+
+#socialIcon li a {
+  color: silver;
+}
+
+#socialIcon li a:hover {
+  color: red;
+}
